@@ -125,7 +125,7 @@
           "kind": "Build",
           "ref": "railsBuild",
           "spec": {
-            "id": "rails-migration-example-builder",
+            "id": "${refs.railsBuilder.id}",
             "type": "service",
             "branch": "main"
           }
