@@ -270,7 +270,7 @@
   "description": "Ruby on Rails buildpack example with migration",
   "project": {
     "spec": {
-      "name": "Rails migration example",
+      "name": "Northflank Rails migration example",
       "region": "europe-west",
       "description": "",
       "color": "#EF233C"
