@@ -89,8 +89,9 @@
         },
         {
           "kind": "BuildService",
+          "ref": "railsBuilder",
           "spec": {
-            "name": "Rails migration example builder",
+            "name": "Rails builder",
             "billing": {
               "deploymentPlan": "nf-compute-50"
             },
@@ -124,7 +125,7 @@
           "kind": "Build",
           "ref": "railsBuild",
           "spec": {
-            "id": "rails-migration-example-builder",
+            "id": "${refs.railsBuilder.id}",
             "type": "service",
             "branch": "main"
           }
@@ -145,7 +146,7 @@
           "kind": "DeploymentService",
           "ref": "railsDeployment",
           "spec": {
-            "name": "Rails migration example deployment",
+            "name": "Rails deployment",
             "billing": {
               "deploymentPlan": "nf-compute-50"
             },
@@ -163,7 +164,7 @@
                 }
               },
               "internal": {
-                "id": "rails-migration-example-builder",
+                "id": "${refs.railsBuilder.id}",
                 "branch": "main",
                 "buildId": "${refs.railsBuild.internalId}"
               }
@@ -247,7 +248,7 @@
                 }
               },
               "internal": {
-                "id": "rails-migration-example-builder",
+                "id": "${refs.railsBuilder.id}",
                 "branch": "main",
                 "buildId": "${refs.railsBuild.internalId}"
               }
@@ -269,7 +270,7 @@
   "description": "Ruby on Rails buildpack example with migration",
   "project": {
     "spec": {
-      "name": "Rails migration example",
+      "name": "Northflank Rails migration example",
       "region": "europe-west",
       "description": "",
       "color": "#EF233C"
